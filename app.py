@@ -27,8 +27,7 @@ st.write("Apni samasya batayein, AI Geeta ke Shlokon se samadhan dega.")
 # 2. This changes the Title on the Page
 st.title("Geeta AI Wisdom")
 
-# Sidebar for API Key
-api_key = st.sidebar.text_input("Apni Groq API Key daalein (Free)", type="password")
+
 
 user_problem = st.text_area("Aapki samasya kya hai?", height=100)
 
@@ -77,6 +76,7 @@ if st.button("Solution Payein"):
 # Rest of your app logic...
 st.write("Welcome to the Geeta AI Wisdom app.")
 # (Paste your remaining original code here if you have it)
+
 
 
 
