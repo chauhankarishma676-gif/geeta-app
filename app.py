@@ -12,7 +12,7 @@ st.title("Geeta AI Wisdom")
 # Rest of your app logic...
 st.write("Welcome to the Geeta AI Wisdom app.")
 # (Paste your remaining original code here if you have it)
-mport streamlit as st
+import streamlit as st
 from openai import OpenAI
 
 # Page Config
@@ -78,4 +78,5 @@ if st.button("Solution Payein"):
 # Rest of your app logic...
 st.write("Welcome to the Geeta AI Wisdom app.")
 # (Paste your remaining original code here if you have it)
+
 
