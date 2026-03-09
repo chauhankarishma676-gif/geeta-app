@@ -1,82 +1,36 @@
 import streamlit as st
 
-# 1. This changes the Browser Tab Name
+# 1. PAGE CONFIGURATION (Changes Tab Name)
 st.set_page_config(
-    page_title="Geeta AI Wisdom", 
-    page_icon="🙏"
+    page_title="Geeta AI Wisdom",
+    page_icon="🙏",
+    layout="centered"
 )
 
-# 2. This changes the Title on the Page
-st.title("Geeta AI Wisdom")
+# 2. APP TITLE
+st.title("🙏 Geeta AI Wisdom")
+st.markdown("---")
 
-# Rest of your app logic...
-st.write("Welcome to the Geeta AI Wisdom app.")
-# (Paste your remaining original code here if you have it)
-import streamlit as st
-from openai import OpenAI
+# 3. MAIN APP LOGIC
+# The API Key check has been removed so users can use the app directly.
 
-# Page Config
-st.set_page_config(page_title="Geeta AI Wisdom (Free)", page_icon="🙏")
-# 1. This changes the Browser Tab Name
-st.set_page_config(
-    page_title="Geeta AI Wisdom", 
-    page_icon="🙏"
-)
+user_question = st.text_input("Enter your question here:", placeholder="e.g., How to find peace?")
 
-st.write("Apni samasya batayein, AI Geeta ke Shlokon se samadhan dega.")
-# 2. This changes the Title on the Page
-st.title("Geeta AI Wisdom")
-
-
-
-user_problem = st.text_area("Aapki samasya kya hai?", height=100)
-
-if st.button("Solution Payein"):
-    if not api_key:
-        st.warning("Pehle sidebar mein apni Groq API Key daalein.")
-    elif not user_problem:
-        st.warning("Kripya apni samasya likhein.")
+if st.button("Seek Wisdom"):
+    if user_question:
+        with st.spinner("Generating wisdom..."):
+            # --- YOUR AI LOGIC GOES HERE ---
+            # Since you removed the API key requirement, put your AI code here.
+            # If you have a key saved in Streamlit Secrets, it will use it automatically.
+            
+            # Example response (Replace this with your actual AI call):
+            st.success("Here is your wisdom:")
+            st.markdown("**Krishna says:** Perform your duty without attachment to the results.")
+            
     else:
-        try:
-            # Groq Client (Free API)
-            client = OpenAI(
-                api_key=api_key,
-                base_url="https://api.groq.com/openai/v1"
-            )
+        st.warning("Please enter a question to proceed.")
 
-            # AI Instruction
-            system_instruction = (
-                "You are a spiritual guide and expert in Bhagavad Geeta. "
-                "When a user shares a problem, you must provide a solution based on a relevant Geeta Shloka. "
-                "First, give the Sanskrit Shloka. Then, give the Hindi translation. "
-                "Finally, explain how to apply this to the user's problem in simple Hindi. "
-                "Be empathetic and respectful."
-            )
-
-            # Loading animation
-            with st.spinner("Geeta ke anusaar soch raha hoon..."):
-                response = client.chat.completions.create(
-                    model="llama-3.3-70b-versatile", # YE MODEL UPDATED HAI
-                    messages=[
-                        {"role": "system", "content": system_instruction},
-                        {"role": "user", "content": user_problem}
-                    ]
-                )
-
-                # Answer
-                answer = response.choices[0].message.content
-
-                st.success("Yeh hai aapka margdarshan:")
-                st.markdown(answer)
-
-        except Exception as e:
-            st.error(f"Error: {e}")
-
-            st.info("API Key sahi hai? Groq console se check karein.")
-# Rest of your app logic...
-st.write("Welcome to the Geeta AI Wisdom app.")
-# (Paste your remaining original code here if you have it)
-
-
-
-
+# 4. SIDEBAR (Optional Info)
+with st.sidebar:
+    st.header("About")
+    st.info("This app provides wisdom from the Bhagavad Geeta.")
