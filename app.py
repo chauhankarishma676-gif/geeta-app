@@ -23,7 +23,6 @@ st.set_page_config(
     page_icon="🙏"
 )
 
-st.title("🙏 Geeta AI Problem Solver")
 st.write("Apni samasya batayein, AI Geeta ke Shlokon se samadhan dega.")
 # 2. This changes the Title on the Page
 st.title("Geeta AI Wisdom")
@@ -78,5 +77,6 @@ if st.button("Solution Payein"):
 # Rest of your app logic...
 st.write("Welcome to the Geeta AI Wisdom app.")
 # (Paste your remaining original code here if you have it)
+
 
 
